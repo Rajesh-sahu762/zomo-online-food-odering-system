@@ -1,0 +1,39 @@
+# Visual Studio
+.vs/
+bin/
+obj/
+
+# Packages
+packages/
+node_modules/
+
+# User specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Database
+*.mdf
+*.ldf
+
+# Publish folders
+Publish/
+publish/
+
+# Logs
+*.log
+
+# Temporary
+Temp/
+tmp/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Config secrets
+web.Release.config
+
+# Ignore sensitive web.config if contains passwords
+# web.config

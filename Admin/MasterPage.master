@@ -1,0 +1,169 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Owner_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+     <title>Zomo | Owner Panel</title>
+
+    <!-- Zomo CSS -->
+    <link href="assets/css/vendors/bootstrap.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/remixicon.css" rel="stylesheet" />
+
+    <style>
+        body {
+            background: #f8f9fa;
+        }
+        .sidebar {
+            width: 260px;
+            background: #ffffff;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            box-shadow: 0 0 15px rgba(0,0,0,0.08);
+        }
+        .sidebar .logo {
+            padding: 20px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            color: #ff6b35;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li a {
+            display: block;
+            padding: 12px 20px;
+            color: #333;
+            text-decoration: none;
+        }
+        .sidebar ul li a:hover,
+        .sidebar ul li a.active {
+            background: #ff6b35;
+            color: #fff;
+        }
+
+        .main-content {
+            margin-left: 260px;
+        }
+
+        .header {
+            background: #fff;
+            padding: 15px 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .header h5 {
+            margin: 0;
+        }
+        .sidebar ul li a.active {
+    background: #ff6b35;
+    color: #fff !important;
+    font-weight: 500;
+}
+
+    </style>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!-- ===== SIDEBAR ===== -->
+        <div class="sidebar">
+            <div class="logo">ZOMO OWNER</div>
+
+            <ul>
+                <li>
+                   <a href="admin-dashboard.aspx">
+                        <i class="ri-dashboard-line"></i> Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="vendors.aspx">
+                        <i class="ri-user-add-line"></i> Vendor Approval
+                    </a>
+                </li>
+
+              <%--  <li>
+                    <a href="vendor-details.aspx">
+                        <i class="ri-store-3-line"></i> Vendors Details
+                    </a>
+                </li>--%>
+                      <li>
+                    <a href="vendor-restaurant-details.aspx">
+                        <i class="ri-store-3-line"></i> Vendors Restaurant Details
+                    </a>
+                </li>
+                   <li>
+                    <a href="sales-report.aspx">
+                        <i class="ri-store-3-line"></i> sales-report
+                    </a>
+                </li>   <li>
+                    <a href="orders.aspx">
+                        <i class="ri-store-3-line"></i> Orders
+                    </a>
+                </li>
+                                      <li>
+                    <a href="global-categories.aspx">
+                        <i class="ri-store-3-line"></i> Categories
+                    </a>
+                </li>
+
+                <li>
+                    <a href="login.aspx">
+                        <i class="ri-logout-box-line"></i> Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ===== MAIN CONTENT ===== -->
+        <div class="main-content">
+
+            <!-- HEADER -->
+            <div class="header d-flex justify-content-between align-items-center">
+                <h5>Owner Panel</h5>
+                <span>
+                    <i class="ri-user-3-line"></i> Admin
+                </span>
+            </div>
+
+            <!-- PAGE CONTENT -->
+            <div class="p-4">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+            </div>
+
+        </div>
+
+    </form>
+
+    <script>
+        (function () {
+            var currentPage = window.location.pathname.split('/').pop().toLowerCase();
+
+            var links = document.querySelectorAll(".sidebar ul li a");
+
+            for (var i = 0; i < links.length; i++) {
+                var linkPage = links[i].getAttribute("href");
+
+                if (!linkPage) continue;
+
+                linkPage = linkPage.toLowerCase();
+
+                if (currentPage === linkPage) {
+                    links[i].classList.add("active");
+                }
+            }
+        })();
+</script>
+
+
+    <!-- JS -->
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
