@@ -7,7 +7,7 @@ obj/
 packages/
 node_modules/
 
-# User specific files
+# User files
 *.suo
 *.user
 *.userosscache
@@ -24,7 +24,7 @@ publish/
 # Logs
 *.log
 
-# Temporary
+# Temp
 Temp/
 tmp/
 
@@ -32,8 +32,8 @@ tmp/
 Thumbs.db
 .DS_Store
 
-# Config secrets
+# Config
+web.config
 web.Release.config
-
-# Ignore sensitive web.config if contains passwords
-# web.config
+appsettings.json
+SQLQuery1.sql
